@@ -1,5 +1,6 @@
 import { listContacts, getContactById, removeContact, addContact } from "./contacts.js";
 import { program } from "commander";
+
 program
   .option("-a, --action <type>", "choose action")
   .option("-i, --id <type>", "user id")
@@ -27,7 +28,7 @@ async function invokeAction({ action, id, name, email, phone }) {
 
     case "remove":
       const removed = await removeContact(id);
-      return removed ? console.log("Contact deleted: ", id) : console.log("Contact not found");
+      return removed ? console.log(removed) : null;
 
     default:
       return console.warn("\x1B[31m Unknown action type!");
