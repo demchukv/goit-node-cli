@@ -20,7 +20,7 @@ async function invokeAction({ action, id, name, email, phone }) {
  
     case "get":
       const contact = await getContactById(id);
-      return contact ? console.table(contact) : console.log("Contact not found");
+      return contact ? console.table(contact) : null;
 
     case "add":
       const newContact = await addContact(name, email, phone);
